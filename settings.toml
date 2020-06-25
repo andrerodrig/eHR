@@ -1,0 +1,9 @@
+[default]
+DEBUG = false
+
+[development]
+DEBUG = true
+
+[production]
+DEBUG = false
+

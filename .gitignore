@@ -1,0 +1,10 @@
+
+# Ignore dynaconf secret files
+.secrets.*
+.env
+
+# db files
+*.sqlite3
+
+# cache
+*/__pycache__
