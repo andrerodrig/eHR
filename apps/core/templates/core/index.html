@@ -12,9 +12,9 @@
     <a href="{% url 'logout' %}">Logout</a>
 
     {% if user.employee.company %}
-      <a href="">Editar emppresa</a>
+      <a href="{% url 'edit_company' user.employee.company.id %}">Editar emppresa</a>
     {% else %}
-      <a href="">Criar empresa</a>
+      <a href="{% url 'create_company' %}">Criar empresa</a>
     {% endif %}
 
   </div>
