@@ -7,9 +7,9 @@
     List <br />
 
     {% for department in object_list %}
-        <a href="">{{ department }}</a>
-        <a href="">Deletar</a><br />
+        <a href="{% url 'department:update_department' department.id %}">{{ department }}</a>
+        <a href="{% url 'department:delete_department' department.id %}">Deletar</a><br />
     {% endfor %}
 
-    <a href="" class="btn btn-info">Novo</a>
+    <a href="{% url 'department:create_department' %}" class="btn btn-info">Novo</a>
 {% endblock main %}

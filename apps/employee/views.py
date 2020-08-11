@@ -18,7 +18,7 @@ class EmployeesList(ListView):
         return Employee.objects.filter(company=logged_company)
 
 
-class EmployeeNew(CreateView):
+class EmployeeCreate(CreateView):
     model = Employee
     fields = ['name', 'department']
 
@@ -28,7 +28,7 @@ class EmployeeNew(CreateView):
         employee.company = self.request.user.employee.company
         employee.user = User.objects.create(username=username)
         employee.save()
-        return super(EmployeeNew, self).form_valid(form)
+        return super(EmployeeCreate, self).form_valid(form)
 
 
 class EmployeeEdit(UpdateView):
