@@ -1,22 +1,25 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<div class="row">
-  <div class="col-sm">
-    1 of 3
-  </div>
-  <div class="col-sm">
-    Olá {{ user.employee.name }}
-  </div>
-  <div class="col-sm">
-    <a href="{% url 'logout' %}">Logout</a>
+  <div class="row">
+    <div class="col-sm">
+      1 of 3
+    </div>
+    <div class="col-sm">
+      Olá {{ user.employee.name }}
+      <a href="{% url 'employee:list_employees' %}">Gerenciar Funcionarios</a>
+      <a href="{% url 'department:list_departments' %}">Gerenciar Departamentos</a>
+    </div>
+    <div class="col-sm">
+      <a href="{% url 'logout' %}">Logout</a>
 
-    {% if user.employee.company %}
-      <a href="{% url 'edit_company' user.employee.company.id %}">Editar emppresa</a>
-    {% else %}
-      <a href="{% url 'create_company' %}">Criar empresa</a>
-    {% endif %}
-
+      {% if user.employee.company %}
+        <a href="{% url 'edit_company' user.employee.company.id %}">
+          Editar empresa
+        </a>
+      {% else %}
+        <a href="{% url 'create_company' %}">Criar empresa</a>
+      {% endif %}
+    </div>
   </div>
-</div>
 {% endblock main %}
