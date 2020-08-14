@@ -8,6 +8,7 @@ authors = ["andrerodrig <andrelmarques11@gmail.com>"]
 python = "^3.7"
 django = "^3.0"
 dynaconf = "2.2.3"
+django-bootstrap-form = "^3.4"
 
 [tool.poetry.dev-dependencies]
 

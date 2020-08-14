@@ -20,6 +20,8 @@ INSTALLED_APPS = [
     'apps.documents',
     'apps.overtime',
     'apps.core',
+    # External apps
+    'bootstrapform',
 
 ]
 

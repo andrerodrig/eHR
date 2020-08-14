@@ -3,7 +3,7 @@
 {% block main %}
     
     <form method="POST">
-        <h1>Você está certo que quer deletar o departamento {{ obj }}?</h1>
+        <h1>Você está certo que quer deletar o departamento {{ object }}?</h1>
 
         {% csrf_token %}
         {{ form }}
