@@ -12,4 +12,11 @@ Edit
 
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
+
+<a href="{% url 'documents:create_document' object.id %}" class="mt-2 btn btn-info">Adicionar Documento</a>
+
+{% for document in object.document_set.all %}
+    <a href="{{ document.file.url }}">{{ document }}</a><br />
+{% endfor %}
+
 {% endblock main %}

@@ -15,24 +15,25 @@ migrations/
 
 
 # Useless files
-
 poetry.lock
-static/bootstrap/css/bootstrap-grid.css
-static/bootstrap/css/bootstrap-grid.css.map
-static/bootstrap/css/bootstrap-grid.min.css
-static/bootstrap/css/bootstrap-grid.min.css.map
-static/bootstrap/css/bootstrap-reboot.css
-static/bootstrap/css/bootstrap-reboot.css.map
-static/bootstrap/css/bootstrap-reboot.min.css
-static/bootstrap/css/bootstrap-reboot.min.css.map
-static/bootstrap/css/bootstrap.css
-static/bootstrap/css/bootstrap.css.map
-static/bootstrap/css/bootstrap.min.css.map
-static/bootstrap/js/bootstrap.bundle.js
-static/bootstrap/js/bootstrap.bundle.js.map
-static/bootstrap/js/bootstrap.bundle.min.js
-static/bootstrap/js/bootstrap.bundle.min.js.map
-static/bootstrap/js/bootstrap.js
-static/bootstrap/js/bootstrap.js.map
-static/bootstrap/js/bootstrap.min.js.map
+staticfiles/bootstrap/css/bootstrap-grid.css
+staticfiles/bootstrap/css/bootstrap-grid.css.map
+staticfiles/bootstrap/css/bootstrap-grid.min.css
+staticfiles/bootstrap/css/bootstrap-grid.min.css.map
+staticfiles/bootstrap/css/bootstrap-reboot.css
+staticfiles/bootstrap/css/bootstrap-reboot.css.map
+staticfiles/bootstrap/css/bootstrap-reboot.min.css
+staticfiles/bootstrap/css/bootstrap-reboot.min.css.map
+staticfiles/bootstrap/css/bootstrap.css
+staticfiles/bootstrap/css/bootstrap.css.map
+staticfiles/bootstrap/css/bootstrap.min.css.map
+staticfiles/bootstrap/js/bootstrap.bundle.js
+staticfiles/bootstrap/js/bootstrap.bundle.js.map
+staticfiles/bootstrap/js/bootstrap.bundle.min.js
+staticfiles/bootstrap/js/bootstrap.bundle.min.js.map
+staticfiles/bootstrap/js/bootstrap.js
+staticfiles/bootstrap/js/bootstrap.js.map
+staticfiles/bootstrap/js/bootstrap.min.js.map
 
+# Media files
+media/documents/*
