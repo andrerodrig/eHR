@@ -37,3 +37,6 @@ staticfiles/bootstrap/js/bootstrap.min.js.map
 
 # Media files
 media/documents/*
+
+# VScode files
+.vscode
