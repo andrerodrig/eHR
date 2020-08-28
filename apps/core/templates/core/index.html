@@ -9,6 +9,7 @@
       Olá {{ user.employee.name }}
       <a href="{% url 'employee:list_employees' %}">Gerenciar Funcionarios</a>
       <a href="{% url 'department:list_departments' %}">Gerenciar Departamentos</a>
+      <a href="{% url 'overtime:list_overtime' %}">Gerenciar Banco de Horas</a>
     </div>
     <div class="col-sm">
       <a href="{% url 'logout' %}">Logout</a>
