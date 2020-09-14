@@ -1,9 +1,11 @@
 [default]
 DEBUG = false
+ALLOWED_HOSTS = ["3.20.205.37"]
 
 [development]
 DEBUG = true
+ALLOWED_HOSTS = ["*"]
 
 [production]
 DEBUG = false
-
+ALLOWED_HOSTS = ["3.20.205.37"]

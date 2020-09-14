@@ -2,10 +2,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-ALLOWED_HOSTS = []
-
-
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
