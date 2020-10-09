@@ -4,7 +4,7 @@
     Banco de Horas<br />
 
     {% for overtime_regist in object_list %}
-        <a href="{% url 'overtime:update_overtime' overtime_regist.id %}">
+        <a href="{% url 'overtime:update_overtime_base' overtime_regist.id %}">
             {{ overtime_regist }}
         </a>
 

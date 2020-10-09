@@ -10,7 +10,7 @@ class OvertimeRegister(models.Model):
     hours = models.DecimalField(max_digits=5, decimal_places=2)
 
     def get_absolute_url(self):
-        return reverse("overtime:update_overtime", kwargs={"pk": self.pk})
+        return reverse("employee:update_employee", kwargs={"pk": self.employee.pk})
 
     def __str__(self):
         return self.reason

@@ -13,12 +13,33 @@ Edit
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
 
-{% if object %}
+{% if object.id %}
     <a href="{% url 'documents:create_document' object.id %}" class="mt-2 btn btn-info">Adicionar Documento</a>
+    <div class="container">    
+        <h3>Documentos</h3>
+        <ul>
+            {% for document in object.document_set.all %}
+                <li>
+                    <a href="{{ document.file.url }}">{{ document }}</a><br />
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a href="{% url 'overtime:create_overtime' %}" class="mt-2 btn btn-info">Adicionar Horas Extras</a>
+    <div>
+        <h3>Horas Extras</h3>
+        <ul>
+            {% for overtime in object.overtimeregister_set.all %}
+                <li>
+                    <a href="{% url 'overtime:update_overtime' overtime.id %}">
+                        {{ overtime.reason}} | {{ overtime.hours}}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <h4>Total de Horas Extra: {{object.total_overtime}}</h4>
+    </div>
 
-    {% for document in object.document_set.all %}
-        <a href="{{ document.file.url }}">{{ document }}</a><br />
-    {% endfor %}
 
 {% endif %}
 

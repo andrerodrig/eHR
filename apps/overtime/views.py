@@ -22,10 +22,20 @@ class OvertimeList(ListView):
 class OvertimeEdit(UpdateView):
     model = OvertimeRegister
     form_class = OvertimeRegisterForm
-    success_url = reverse_lazy('overtime:list_overtime')
 
     def get_form_kwargs(self):
         kwargs = super(OvertimeEdit, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
+
+class OvertimeBaseEdit(UpdateView):
+    model = OvertimeRegister
+    form_class = OvertimeRegisterForm
+    success_url = reverse_lazy('overtime:list_overtime')
+
+    def get_form_kwargs(self):
+        kwargs = super(OvertimeBaseEdit, self).get_form_kwargs()
         kwargs.update({'user': self.request.user})
         return kwargs
 
