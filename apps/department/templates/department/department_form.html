@@ -3,12 +3,26 @@
 
 {% block main %}
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'core:home' %}">Home</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a
+                href="{% url 'department:list_departments' %}">Departamentos</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Novo Departamento</li>
+    </ol>
+</nav>
+
+
+<div class="container">
     <form method="POST">
         {% csrf_token %}
-    
+
         {{ form|bootstrap }}
 
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="submit" class="btn btn-primary w-100">Salvar</button>
     </form>
+
+</div>
 
 {% endblock main %}

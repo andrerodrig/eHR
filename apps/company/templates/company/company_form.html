@@ -2,10 +2,14 @@
 {% load bootstrap %}
 
 {% block main %}
-<form method='post'>
-    {% csrf_token %}
 
-    {{ form|bootstrap }}
-    <button type="submit" class="btn btn-primary">Salvar</button>
-</form>
+<div class="container">
+    <form method='post'>
+        {% csrf_token %}
+
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary w-100">Salvar</button>
+    </form>
+
+</div>
 {% endblock main %}

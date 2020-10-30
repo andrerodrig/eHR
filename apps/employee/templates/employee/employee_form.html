@@ -6,47 +6,50 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item" aria-current="page"><a href="{% url 'core:home' %}">Home</a></li>
-        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'employee:list_employees' %}">Funcionarios</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'employee:list_employees' %}">Funcionarios</a>
+        </li>
         <li class="breadcrumb-item active" aria-current="page">Editar Funcionario</li>
     </ol>
 </nav>
 
-<form method="POST">
-    {% csrf_token %}
+<div class="container">
 
-    {{ form|bootstrap }}
+    <form method="POST">
+        {% csrf_token %}
 
-    <button type="submit" class="btn btn-primary">Salvar</button>
-</form>
+        {{ form|bootstrap }}
 
-{% if object.id %}
-    <a href="{% url 'documents:create_document' object.id %}" class="mt-2 btn btn-info">Adicionar Documento</a>
-    <div class="container">    
+        <button type="submit" class="btn btn-primary w-100">Salvar</button>
+    </form>
+
+    {% if object.id %}
+    <a href="{% url 'documents:create_document' object.id %}" class="mt-2 btn btn-info w-100">Adicionar Documento</a>
+    <div class="container">
         <h3>Documentos</h3>
         <ul>
             {% for document in object.document_set.all %}
-                <li>
-                    <a href="{{ document.file.url }}">{{ document }}</a><br />
-                </li>
+            <li>
+                <a href="{{ document.file.url }}">{{ document }}</a><br />
+            </li>
             {% endfor %}
         </ul>
     </div>
-    <a href="{% url 'overtime:create_overtime' %}" class="mt-2 btn btn-info">Adicionar Horas Extras</a>
+    <a href="{% url 'overtime:create_overtime' %}" class="mt-2 btn btn-info w-100">Adicionar Horas Extras</a>
     <div>
         <h3>Horas Extras</h3>
         <ul>
             {% for overtime in object.overtimeregister_set.all %}
-                <li>
-                    <a href="{% url 'overtime:update_overtime' overtime.id %}">
-                        {{ overtime.reason}} | {{ overtime.hours}}
-                    </a>
-                </li>
+            <li>
+                <a href="{% url 'overtime:update_overtime' overtime.id %}">
+                    {{ overtime.reason}} | {{ overtime.hours}}
+                </a>
+            </li>
             {% endfor %}
         </ul>
         <h4>Total de Horas Extra: {{object.total_overtime}}</h4>
     </div>
+    {% endif %}
+</div>
 
-
-{% endif %}
 
 {% endblock main %}

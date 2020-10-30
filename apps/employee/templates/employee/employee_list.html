@@ -10,12 +10,32 @@
     </ol>
 </nav>
 
-{% for employee in object_list %}
-<a href="{% url 'employee:update_employee' employee.id %}">{{ employee }}</a>
-<a href="{% url 'employee:delete_employee' employee.id %}">Deletar</a><br />
+<div class="container py-4">
 
-{% endfor %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in object_list %}
+            <tr>
+                <th scope="row"></th>
+                <td><a href="{% url 'employee:update_employee' employee.id %}">{{ employee }}</a></td>
+                <td><a href="{% url 'employee:update_employee' employee.id %}">{{ employee.user.email }}</a></td>
+                <td><a class="btn btn-danger" href="{% url 'employee:delete_employee' employee.id %}">Deletar</a></td>
+            </tr>
+            {% endfor %}
 
-<a href="{% url 'employee:create_employee' %}" class="btn btn-info">Novo</a>
+        </tbody>
+    </table>
+
+    <a href="{% url 'employee:create_employee' %}" class="btn btn-info w-100">Novo</a>
+
+</div>
 
 {% endblock main %}

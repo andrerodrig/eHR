@@ -1,15 +1,40 @@
 {% extends 'base.html' %}
 
-    {% block title %}Departamentos{% endblock title %}
+{% block title %}Departamentos{% endblock title %}
 
 {% block main %}
 
-    List <br />
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'core:home' %}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Departamentos</li>
+    </ol>
+</nav>
 
-    {% for department in object_list %}
-        <a href="{% url 'department:update_department' department.id %}">{{ department }}</a>
-        <a href="{% url 'department:delete_department' department.id %}">Deletar</a><br />
-    {% endfor %}
+<div class="container py-4">
 
-    <a href="{% url 'department:create_department' %}" class="btn btn-info">Novo</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Nome</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for department in object_list %}
+            <tr>
+                <th scope="row"></th>
+                <td><a href="{% url 'department:update_department' department.id %}">{{ department }}</a></td>
+                <td><a class="btn btn-danger" href="{% url 'department:delete_department' department.id %}">Deletar</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <a href="{% url 'department:create_department' %}" class="btn btn-info w-100">Novo</a>
+
+</div>
 {% endblock main %}

@@ -1,21 +1,44 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    Banco de Horas<br />
 
-    {% for overtime_regist in object_list %}
-        <a href="{% url 'overtime:update_overtime_base' overtime_regist.id %}">
-            {{ overtime_regist }}
-        </a>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'core:home' %}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Banco de Horas</li>
+    </ol>
+</nav>
 
-        <a href="{% url 'overtime:delete_overtime' overtime_regist.id %}">
-            Deletar
-        </a><br />
-    {% endfor %}
+<div class="container py-4">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Descrição</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for overtime_regist in object_list %}
+            <tr>
+                <th scope="row"></th>
+                <td><a href="{% url 'overtime:update_overtime_base' overtime_regist.id %}">{{ overtime_regist }}</a>
+                </td>
+                <td><a class="btn btn-danger" href="{% url 'overtime:delete_overtime' overtime_regist.id %}">Deletar</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
 
     {% if not object_list %}
-        <h2>Não existem registros de horas extras no Banco de Dados.</h2>
+    <h2>Não existem registros de horas extras no Banco de Dados.</h2>
     {% endif %}
-    <a href="{% url 'overtime:create_overtime' %}" class="btn btn-info">Novo</a>
+    <a href="{% url 'overtime:create_overtime' %}" class="btn btn-info w-100">Novo</a>
+
+</div>
+
 
 {% endblock main %}

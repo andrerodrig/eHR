@@ -3,26 +3,41 @@
 {% load static %}
 
 {% block main %}
+<div class="container">
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'core:home' %}">Home</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a
+                href="{% url 'overtime:list_overtime' %}">Banco de Horas</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Adicionar Hora Extra</li>
+    </ol>
+</nav>
+
     <form method="POST">
         {% csrf_token %}
         {{ form|bootstrap }}
-        <button type="submit" class="btn btn-info">Salvar</button>
-        
+        <button type="submit" class="btn btn-info w-100 my-2">Salvar</button>
+
         {% if object %}
-            <a class="btn btn-danger" href="{% url 'overtime:delete_overtime' object.id %}">
-                Deletar
-            </a>
-            <button id="prevented" class="btn btn-primary" onclick="hasUsedOvertime({{ object.id }})"> Liberar Hora Extra</button>
+        <a class="btn btn-danger w-100 my-2" href="{% url 'overtime:delete_overtime' object.id %}">
+            Deletar
+        </a>
+        <button id="prevented" class="btn btn-primary w-100 my-2" onclick="hasUsedOvertime({{ object.id }})"> Liberar Hora
+            Extra</button>
         {% endif %}
     </form>
 
-<p id="mensagem"></p>
-<h4 id="horas-atualizadas"> {{ object.total_overtime }} </h4>
+    <p id="mensagem"></p>
+    <h4 id="horas-atualizadas"> {{ object.total_overtime }} </h4>
+
+</div>
 
 
 {% endblock main %}
 
 {% block static %}
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/ajax.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/ajax.js' %}"></script>
 {% endblock static %}

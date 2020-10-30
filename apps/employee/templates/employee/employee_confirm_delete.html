@@ -5,17 +5,21 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item" aria-current="page"><a href="{% url 'core:home' %}">Home</a></li>
-        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'employee:list_employees' %}">Funcionarios</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'employee:list_employees' %}">Funcionarios</a>
+        </li>
         <li class="breadcrumb-item active" aria-current="page">Deletar Funcionario</li>
     </ol>
 </nav>
 
+<div class="container">
+    <form method='POST'>
+        <h1>Você está certo de que quer deletar {{ object }}?</h1>
 
-<form method='POST'>
-    <h1>Você está certo de que quer deletar {{ object }}?</h1>
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+    </form>
 
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit" class="btn btn-danger">Confirmar</button>
-</form>
+</div>
+
 {% endblock main %}

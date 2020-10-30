@@ -1,12 +1,24 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    Deletar registro de Hora Extra
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'core:home' %}">Home</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'overtime:list_overtime' %}">Banco de Horas</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Deletar Hora Extra</li>
+    </ol>
+</nav>
+
+<div class="container">
 
     <form method="POST">
         {% csrf_token %}
         <h1>Você está certo que quer deletar {{ object }}?<h1>
-        <button type="submit" class="btn btn-danger">Confirmar</button>
+                <button type="submit" class="btn btn-danger">Confirmar</button>
     </form>
+
+</div>
 
 {% endblock main %}
