@@ -1,26 +1,62 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/profile.css'%}" />
+<link rel="stylesheet" href="{% static 'css/main.css'%}" />
+{% endblock stylesheets %}
 
 {% block main %}
-  <div class="row">
-    <div class="col-sm">
-      1 of 3
-    </div>
-    <div class="col-sm">
-      Olá {{ user.employee.name }}
-      <a href="{% url 'employee:list_employees' %}">Gerenciar Funcionarios</a>
-      <a href="{% url 'department:list_departments' %}">Gerenciar Departamentos</a>
-      <a href="{% url 'overtime:list_overtime' %}">Gerenciar Banco de Horas</a>
-    </div>
-    <div class="col-sm">
-      <a href="{% url 'logout' %}">Logout</a>
+<div class="container row">
+  <div id="nav-menu" class="py-2 col-md-3">
 
-      {% if user.employee.company %}
-        <a href="{% url 'edit_company' user.employee.company.id %}">
-          Editar empresa
-        </a>
-      {% else %}
-        <a href="{% url 'create_company' %}">Criar empresa</a>
-      {% endif %}
+    <div class="clearfix"></div>
+
+    <!-- menu profile quick info -->
+    <div class="profile clearfix d-flex justify-content-between">
+      <div class="profile_pic">
+        <img src="{% static 'img/an.jpg'%}" alt="..." class="profile_img" width="100" height="100">
+      </div>
+      <div class="profile_info">
+        <span>Olá,</span>
+        <h3>{{ user.employee.name }}</h3>
+      </div>
     </div>
+    <!-- /menu profile quick info -->
+
+    <ul class="nav flex-column nav-tabs" role="tablist">
+
+      <li class="nav-item">
+        <a class="py-2 nav-link" href="#" data-toggle="tab">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="py-2 nav-link" href="{% url 'employee:list_employees' %}" data-toggle="tab">Gerenciar Funcionarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="py-2 nav-link" href="{% url 'department:list_departments' %}" data-toggle="tab">Gerenciar
+          Departamentos</a>
+      </li>
+      <li class="nav-item">
+        <a class="py-2 nav-link" href="{% url 'overtime:list_overtime' %}" data-toggle="tab">Gerenciar Banco de
+          Horas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn btn-dark" href="{% url 'logout' %}" data-toggle="tab">Logout</a>
+      </li>
+
+    </ul>
   </div>
+  <div id="main-content" class="col-lg-9 container p-2">
+    <div class="card col-lg-4">
+      <div class="card-title text-center"><b>Estatisticas de Funcionarios</b></div>
+    </div>
+    {% if user.employee.company %}
+    <a href="{% url 'edit_company' user.employee.company.id %}">
+      Editar empresa
+    </a>
+    {% else %}
+    <a href="{% url 'create_company' %}">Criar empresa</a>
+    {% endif %}
+  </div>
+</div>
 {% endblock main %}

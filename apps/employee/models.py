@@ -17,6 +17,7 @@ class Employee(models.Model):
     company = models.ForeignKey(
         Company, on_delete=models.PROTECT, null=True, blank=True)
 
+    @property
     def total_overtime(self):
         total = self.overtimeregister_set.all().aggregate(
             Sum('hours'))['hours__sum']

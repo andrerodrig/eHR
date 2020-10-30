@@ -1,0 +1,10 @@
+.profile_img {
+    border-radius: 50%;
+}
+
+.user_profile {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px
+}

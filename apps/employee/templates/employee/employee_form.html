@@ -3,7 +3,13 @@
 
 {% block main %}
 
-Edit
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'core:home' %}">Home</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'employee:list_employees' %}">Funcionarios</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Editar Funcionario</li>
+    </ol>
+</nav>
 
 <form method="POST">
     {% csrf_token %}

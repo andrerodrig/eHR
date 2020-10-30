@@ -1,14 +1,28 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
+{% load static %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+{% endblock stylesheets %}
 
 {% block main %}
 
-    <form method="post">
-        {% csrf_token %}
+<div id="container-login" class="{% block container %}container{% endblock container %}">
+    <div id="login" class="h-100 box">
+        <form class="p-2" method="post">
+            {% csrf_token %}
 
-        {{ form|bootstrap }}
+            {{ form|bootstrap }}
 
-        <button type="submit" class="btn btn-info">Login</button>
-    </form>
+            <button type="submit" class="btn btn-info w-100">Login</button>
+        </form>
+    </div>
 
+</div>
 {% endblock main %}
+{% block static %}
+<script src="{% static 'js/jquery.min.js' %}"></script>
+{% endblock static %}

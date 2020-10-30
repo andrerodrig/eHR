@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
 
-    {% block title %}Funcionarios{% endblock title %}
-    
-    {% block main %} List <br />
-    
-        {% for employee in object_list %}
-            <a href="{% url 'employee:update_employee' employee.id %}">{{ employee }}</a>
-            <a href="{% url 'employee:delete_employee' employee.id %}">Deletar</a><br />
-    
-        {% endfor %}
-    
-    <a href="{% url 'employee:create_employee' %}" class="btn btn-info">Novo</a>
+{% block title %}Funcionarios{% endblock title %}
+
+{% block main %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'core:home' %}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Funcionarios</li>
+    </ol>
+</nav>
+
+{% for employee in object_list %}
+<a href="{% url 'employee:update_employee' employee.id %}">{{ employee }}</a>
+<a href="{% url 'employee:delete_employee' employee.id %}">Deletar</a><br />
+
+{% endfor %}
+
+<a href="{% url 'employee:create_employee' %}" class="btn btn-info">Novo</a>
 
 {% endblock main %}

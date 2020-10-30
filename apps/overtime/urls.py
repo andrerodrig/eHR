@@ -11,5 +11,7 @@ urlpatterns = [
          v.OvertimeEdit.as_view(), name='update_overtime'),
     path('edit/<int:pk>', v.OvertimeBaseEdit.as_view(),
          name='update_overtime_base'),
+    path('utilizou-hora-extra/<int:pk>', v.HasUsedOvertime.as_view(),
+         name='utilizou_hora_extra'),
     path('delete/<int:pk>', v.OvertimeDelete.as_view(), name='delete_overtime'),
 ]
