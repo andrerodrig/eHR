@@ -28,3 +28,20 @@
 .show > .btn-info.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(58, 79, 195, 0.5);
 }
+
+/*
+Card
+*/
+.card {
+  color: #fff;
+  min-height: 50vh;
+  border-radius: 0.5rem;
+  transition: 0.4s;
+  box-shadow: 2px 14px 20px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card:hover {
+  transition: 0.4s;
+  box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+
+}

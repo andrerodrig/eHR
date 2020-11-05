@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
+{% endblock stylesheets %}
 
 {% block title %}Funcionarios{% endblock title %}
 
@@ -11,29 +16,33 @@
 </nav>
 
 <div class="container py-4">
+    <div id="table-employees" class="container px-1 bg-dark">
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                <th scope="col">Nome</th>
-                <th scope="col">Email</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for employee in object_list %}
-            <tr>
-                <th scope="row"></th>
-                <td><a href="{% url 'employee:update_employee' employee.id %}">{{ employee }}</a></td>
-                <td><a href="{% url 'employee:update_employee' employee.id %}">{{ employee.user.email }}</a></td>
-                <td><a class="btn btn-danger" href="{% url 'employee:delete_employee' employee.id %}">Deletar</a></td>
-            </tr>
-            {% endfor %}
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Email</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in object_list %}
+                <tr>
+                    <th scope="row"></th>
+                    <td><a href="{% url 'employee:update_employee' employee.id %}">{{ employee }}</a></td>
+                    <td><a href="{% url 'employee:update_employee' employee.id %}">{{ employee.user.email }}</a></td>
+                    <td><a class="btn btn-danger" href="{% url 'employee:delete_employee' employee.id %}">Deletar</a>
+                    </td>
+                </tr>
+                {% endfor %}
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
+
+    </div>
     <a href="{% url 'employee:create_employee' %}" class="btn btn-info w-100">Novo</a>
 
 </div>

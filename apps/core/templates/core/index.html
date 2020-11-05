@@ -7,10 +7,10 @@
 {% endblock stylesheets %}
 
 {% block main %}
-<div class="container row">
-  <div id="nav-menu" class="py-2 col-md-3">
+<div class="m-1 p-0 row">
+  <nav id="nav-menu" class="py-2 col-sm-12 col-md-3 bg-dark">
 
-    <div class="clearfix"></div>
+    <div class="mt-2 clearfix w-100"></div>
 
     <!-- menu profile quick info -->
     <div class="profile clearfix d-flex justify-content-between">
@@ -24,39 +24,75 @@
     </div>
     <!-- /menu profile quick info -->
 
-    <ul class="nav flex-column nav-tabs" role="tablist">
+    <ul class="nav mt-2 flex-column nav-pills">
 
       <li class="nav-item">
-        <a class="py-2 nav-link" href="{% url 'employee:list_employees' %}" data-toggle="tab">Gerenciar Funcionarios</a>
+        <a class="py-2 nav-link text-center btn btn-dark" href="{% url 'employee:list_employees' %}">Gerenciar
+          Funcionarios</a>
       </li>
       <li class="nav-item">
-        <a class="py-2 nav-link" href="{% url 'department:list_departments' %}" data-toggle="tab">Gerenciar
+        <a class="py-2 nav-link text-center btn btn-dark" href="{% url 'department:list_departments' %}">Gerenciar
           Departamentos</a>
       </li>
       <li class="nav-item">
-        <a class="py-2 nav-link" href="{% url 'overtime:list_overtime' %}" data-toggle="tab">Gerenciar Banco de
+        <a class="py-2 nav-link text-center btn btn-dark" href="{% url 'overtime:list_overtime' %}">Gerenciar Banco de
           Horas</a>
       </li>
 
       <li class="nav-item">
         {% if user.employee.company %}
-        <a class="py-2 nav-link" href="{% url 'edit_company' user.employee.company.id %}" data-toggle="tab">
+        <a class="py-2 nav-link text-center btn btn-dark" href="{% url 'edit_company' user.employee.company.id %}">
           Editar empresa
         </a>
         {% else %}
-        <a class="py-2 nav-link" href="{% url 'create_company' %}" data-toggle="tab">Criar empresa</a>
+        <a class="py-2 nav-link text-center" href="{% url 'create_company' %}">Criar empresa</a>
         {% endif %}
       </li>
 
       <li class="nav-item">
-        <a class="nav-link btn btn-dark" href="{% url 'logout' %}" data-toggle="tab">Logout</a>
+        <a class="nav-link btn btn-dark" href="{% url 'logout' %}">Logout</a>
       </li>
     </ul>
-  </div>
-  <div id="main-content" class="col-lg-9 container p-2">
-    <div class="card col-lg-4">
-      <div class="card-title text-center"><b>Estatisticas de Funcionarios</b></div>
+  </nav>
+  <div id="main-content" class="col-sm-12 col-md-9 container row p-2">
+    <div class="card bg-dark col-lg-5 mx-4 my-2">
+      <div class="card-title text-center pt-2">
+        <h5>Estatisticas - Funcionarios</h5>
+      </div>
+      <a href="{% url 'employee:report_employees' %}" class="button-relatorio btn btn-primary">Gerar Relatório</a>
+      <a href="{% url 'employee:export_csv' %}" class="mt-2 button-relatorio btn btn-primary">Baixar CSV</a>
+      <a href="{% url 'employee:export_excel' %}" class="mt-2 button-relatorio btn btn-primary">Baixar Excel</a>
+    </div>
+
+    <div class="card bg-dark bg-dark col-lg-5 mx-4 my-2">
+      <div class="card-title text-center pt-2">
+        <h5>Estatisticas - Departamentos</h5>
+      </div>
+      <a href="{% url 'department:report_departments' %}" class="button-relatorio btn btn-primary">Gerar Relatório</a>
+      <a href="{% url 'department:export_csv' %}" class="mt-2 button-relatorio btn btn-primary">Baixar CSV</a>
+      <a href="{% url 'department:export_excel' %}" class="mt-2 button-relatorio btn btn-primary">Baixar Excel</a>
+    </div>
+
+    <div class="card bg-dark col-lg-5 mx-4 my-2">
+      <div class="card-title text-center pt-2">
+        <h5>Estatisticas - Banco de Horas</h5>
+      </div>
+      <a href="{% url 'overtime:report_overtime' %}" class="button-relatorio btn btn-primary">Gerar Relatório</a>
+      <a href="{% url 'overtime:export_csv' %}" class="mt-2 button-relatorio btn btn-primary">Baixar CSV</a>
+      <a href="{% url 'overtime:export_excel' %}" class="mt-2 button-relatorio btn btn-primary">Baixar Excel</a>
+    </div>
+
+    <div class="card bg-dark col-lg-5 mx-4 my-2">
+      <div class="card-title text-center pt-2">
+        <h5>Estatisticas da Empresa</h5>
+      </div>
+      <a href="{% url 'employee:report_employees' %}" class="button-relatorio btn btn-primary">Gerar Relatório</a>
+      <a href="{% url 'employee:export_csv' %}" class="mt-2 button-relatorio btn btn-primary">Baixar CSV</a>
+      <a href="{% url 'employee:export_excel' %}" class="mt-2 button-relatorio btn btn-primary">Baixar Excel</a>
     </div>
   </div>
 </div>
 {% endblock main %}
+
+{% block static %}
+{% endblock static %}

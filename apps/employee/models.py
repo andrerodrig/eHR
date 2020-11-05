@@ -19,8 +19,8 @@ class Employee(models.Model):
 
     @property
     def total_overtime(self):
-        total = self.overtimeregister_set.all().aggregate(
-            Sum('hours'))['hours__sum']
+        total = self.overtimeregister_set.filter(used=False).aggregate(
+            Sum('hours'))['hours__sum'] or 0
 
         return total
 

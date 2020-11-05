@@ -40,3 +40,6 @@ media/documents/*
 
 # VScode files
 .vscode
+
+# Static Files
+static/

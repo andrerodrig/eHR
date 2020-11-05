@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
+{% endblock stylesheets %}
 
 {% block title %}Departamentos{% endblock title %}
 
@@ -13,26 +18,29 @@
 
 <div class="container py-4">
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                <th scope="col">Nome</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for department in object_list %}
-            <tr>
-                <th scope="row"></th>
-                <td><a href="{% url 'department:update_department' department.id %}">{{ department }}</a></td>
-                <td><a class="btn btn-danger" href="{% url 'department:delete_department' department.id %}">Deletar</a>
-                </td>
-            </tr>
-            {% endfor %}
+    <div id="table-employees" class="container px-1 bg-dark">
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Nome</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for department in object_list %}
+                <tr>
+                    <th scope="row"></th>
+                    <td><a href="{% url 'department:update_department' department.id %}">{{ department }}</a></td>
+                    <td><a class="btn btn-danger"
+                            href="{% url 'department:delete_department' department.id %}">Deletar</a>
+                    </td>
+                </tr>
+                {% endfor %}
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 
     <a href="{% url 'department:create_department' %}" class="btn btn-info w-100">Novo</a>
 

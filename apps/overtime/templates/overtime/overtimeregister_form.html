@@ -5,15 +5,15 @@
 {% block main %}
 <div class="container">
 
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'core:home' %}">Home</a></li>
-        <li class="breadcrumb-item" aria-current="page"><a
-                href="{% url 'overtime:list_overtime' %}">Banco de Horas</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">Adicionar Hora Extra</li>
-    </ol>
-</nav>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" aria-current="page"><a href="{% url 'core:home' %}">Home</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="{% url 'overtime:list_overtime' %}">Banco de
+                    Horas</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Adicionar Hora Extra</li>
+        </ol>
+    </nav>
 
     <form method="POST">
         {% csrf_token %}
@@ -24,13 +24,15 @@
         <a class="btn btn-danger w-100 my-2" href="{% url 'overtime:delete_overtime' object.id %}">
             Deletar
         </a>
-        <button id="prevented" class="btn btn-primary w-100 my-2" onclick="hasUsedOvertime({{ object.id }})"> Liberar Hora
-            Extra</button>
+        <button class="prevented btn btn-primary w-100 my-2" onclick="hasUsedOvertime({{ object.id }})"> Marcar
+            como utilizada</button>
+        <button class="prevented btn btn-primary w-100 my-2" onclick="hasNotUsedOvertime({{ object.id }})"> Marcar
+            como não utilizada</button>
         {% endif %}
     </form>
 
     <p id="mensagem"></p>
-    <h4 id="horas-atualizadas"> {{ object.total_overtime }} </h4>
+    <h4 id="horas-atualizadas"> {{ object.employee.total_overtime }} </h4>
 
 </div>
 

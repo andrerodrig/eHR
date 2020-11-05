@@ -2,39 +2,43 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/globalstyle.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    {% block stylesheets %}
-    {% endblock stylesheets %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}{% endblock title %}</title>
-  </head>
-  <body>
-  
-    {% if user.id %}
-    <div class="navbar navbar-dark bg-dark">
-      <a href="{% url 'core:home' %}">
-        <i class="fa fa-home"></i>
-        <span>eHR</span>
-      </a>
 
-      <div class="">
-        <button class="btn btn-dark m-0" id="dropdownMenu2">
-          <img src="{% static 'img/an.jpg'%}" class="user_profile" alt="...">{{ user.employee.name }}
-        </button>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/globalstyle.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap" rel="stylesheet">
+  {% block stylesheets %}
+  {% endblock stylesheets %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}{% endblock title %}</title>
+</head>
 
-      </div>
+<body>
+
+  {% if user.id %}
+  <div class="navbar navbar-dark bg-dark">
+    <a href="{% url 'core:home' %}">
+      <i class="fa fa-home"></i>
+      <span>eHR</span>
+    </a>
+
+    <div>
+      <button class="btn btn-dark m-0">
+        <img src="{% static 'img/an.jpg'%}" class="user_profile" alt="...">{{ user.employee.name }}
+      </button>
+
     </div>
-    {% endif %}
+  </div>
+  {% endif %}
 
-    <div class="{% block container %}{% endblock container %} w-100">{% block main %} {% endblock main %}</div>
-    {% block static %}
-    {% endblock static %}
-    <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
-  </body>
+  <div class="{% block container %}{% endblock container %} w-100">{% block main %} {% endblock main %}</div>
+  <script src="{% static 'bootstrap/js/jquery.min.js'%}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  {% block static %}
+  {% endblock static %}
+</body>
+
 </html>

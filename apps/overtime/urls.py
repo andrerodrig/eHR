@@ -13,5 +13,13 @@ urlpatterns = [
          name='update_overtime_base'),
     path('utilizou-hora-extra/<int:pk>', v.HasUsedOvertime.as_view(),
          name='utilizou_hora_extra'),
+    path('nao-utilizou-hora-extra/<int:pk>', v.HasNotUsedOvertime.as_view(),
+         name='nao_utilizou_hora_extra'),
+    path('relatorio-bd-horas/', v.report_overtime_database,
+         name='report_overtime'),
+    path('export-csv/', v.ExportCSV.as_view(),
+         name='export_csv'),
+    path('export-excel/', v.ExportExcel.as_view(),
+         name='export_excel'),
     path('delete/<int:pk>', v.OvertimeDelete.as_view(), name='delete_overtime'),
 ]
