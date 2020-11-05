@@ -3,8 +3,6 @@ import io
 import csv
 import xlwt
 
-from .reports import Render
-
 from reportlab.pdfgen import canvas
 
 from django.http import FileResponse
