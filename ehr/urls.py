@@ -1,15 +1,23 @@
+# Django depencendes
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+
+# Django Rest Framework dependencies
 from rest_framework import routers
 
+# Internal apps dependencies
 from apps.core import views as v
+from apps.employee.api.views import EmployeeViewSet
+from apps.overtime.api.views import OvertimeRegisterViewSet
 
-
+# API Routes
 router = routers.DefaultRouter()
 router.register(r'users', v.UserViewSet)
 router.register(r'groups', v.GroupViewSet)
+router.register(r'api/funcionarios', EmployeeViewSet)
+router.register(r'api/banco-de-horas', OvertimeRegisterViewSet)
 
 
 urlpatterns = [
