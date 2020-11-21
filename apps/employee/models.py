@@ -16,6 +16,7 @@ class Employee(models.Model):
     department = models.ManyToManyField(Department)
     company = models.ForeignKey(
         Company, on_delete=models.PROTECT, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
 
     @property
     def total_overtime(self):
