@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     # External apps
     'bootstrapform',
     'rest_framework',
+    'rest_framework.authtoken',
 
 ]
 
