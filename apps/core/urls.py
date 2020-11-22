@@ -6,4 +6,5 @@ app_name = 'core'
 
 urlpatterns = [
     path('', v.home, name='home'),
+    path('mail-celery/', v.mail_celery, name='mail-celery'),
 ]
