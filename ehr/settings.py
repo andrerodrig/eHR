@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'bootstrapform',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_celery_results',
 
 ]
 
@@ -110,6 +111,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'core:home'
 LOGOUT_REDIRECT_URL = 'login'
+
+CELERY_RESULT_BACKEND = 'django-db'
+
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
 
 # HERE STARTS DYNACONF EXTENSION LOAD (Keep at the very bottom of settings.py)
 # Read more at https://dynaconf.readthedocs.io/en/latest/guides/django.html
