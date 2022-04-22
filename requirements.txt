@@ -19,7 +19,7 @@ importlib-metadata==2.0.0
 kombu==5.0.2
 Pillow==8.2.0
 prompt-toolkit==3.0.8
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 python-bidi==0.4.2
 python-box==3.4.6
 python-crontab==2.5.1
